@@ -11,7 +11,7 @@ Installation
 
 To install the chip on your Bukkit server, you may either download the pre-built version, or build it yourself.
 
-The pre-built versions can be found at `/binary`.
+The pre-built versions can be found at [/binary].
 
 To compile it yourself, you need a working [Maven] enviroment. First, open a new shell window and download the latest version of etCommon:
 
@@ -66,19 +66,19 @@ Memory map
 
 ### Reading:
  * $00: indirect addressing
- * $02: PCL (*PC* *l*ow)
+ * $02: PCL (*PC l*ow)
  * $03: STATUS
  * $04: FSR
- * $0A: PCLATH (*PC* *lat*ched *h*igh)
+ * $0A: PCLATH (*PC lat*ched *h*igh)
  * $10~$1F: input pins
  * $20~$7F: RAM
 
 ### Writting:
  * $00: indirect addressing
- * $02: PCL (*PC* *l*ow)
+ * $02: PCL (*PC l*ow)
  * $03: STATUS
  * $04: FSR
- * $0A: PCLATH (*PC* *lat*ched *h*igh)
+ * $0A: PCLATH (*PC lat*ched *h*igh)
  * $10~$1F: output pins
  * $20~$7F: RAM
 
@@ -126,9 +126,10 @@ If you want to report a bug, ask for a new feature, or just say hello, you can c
 Notes
 -----
 
-Minecraft is © Mojang.  
-Microchip, PIC and PIC12F683 are © Microchip Technology Inc. If you think it is fun to do this inside Minecraft, then try doing it in real life: it's even funnier!
+Minecraft is Â© Mojang.  
+Microchip, PIC and PIC12F683 are Â© Microchip Technology Inc. If you think it is fun to do this inside Minecraft, then try doing it in real life: it's even funnier!
 
+  [/binary]: https://github.com/socram8888/PICMINE/tree/master/binary/
   [Bukkit]: http://bukkit.org/
   [CC-BY 3.0 license]: http://creativecommons.org/licenses/by-sa/3.0/
   [ElTrolado]: http://www.eltrolado.com/
