@@ -38,21 +38,21 @@ Now download and compile RedstoneChips:
 	
 	git clone http://github.com/eisental/RedstoneChips
 	cd RedstoneChips
-	mvn clean install
+	mvn install
 	cd ..
 	
 Then download and compile PICMINE:
 
 	git clone http://github.com/socram8888/PICMINE
 	cd PICMINE
-	mvn clean package
+	mvn package
 	
-The resulting compiled Java Archive file (`.jar`) ready to be used will be placed at `/target`. Just copy it to Bukkit's plugin folder. If you don't have RedstoneChips installed on your server, download the pre-compiled version and copy it to the plugins folder as well.
+The resulting compiled Java Archive file (.jar) ready to be used will be placed at /target. Just copy it to Bukkit's plugin folder. If you don't have RedstoneChips installed on your server, download the pre-compiled version and copy it to the plugins folder as well.
 
 How can I build the chip?
 -------------------------
 
-After having the chip installed, you need to build a chip with "`mcu`" on the sign, and with at least 15 inputs and 11 outputs. If you add more I/O pins, these will be used as GPIO pins (see memory map "input pins" and "output pins")
+After having the chip installed, you need to build a chip with `mcu` on the sign, and with at least 15 inputs and 11 outputs. If you add more I/O pins, these will be used as GPIO pins (see memory map "input pins" and "output pins")
 
 The first input is used as the clock pin. On the rising edge (low-to-high transition) of the clock, the chip will output the PC on the first 12 output pins. On the falling edge (high-to-low transition), the chip will process the instruction given on input pins 2~15 (being the 2 the LSB, and 15 the MSB)
 
@@ -65,33 +65,33 @@ Memory map
 ----------
 
 ### Reading:
- * `$00`: indirect addressing
- * `$02`: `PCL` (*PC* *l*ow)
- * `$03`: `STATUS`
- * `$04`: `FSR`
- * `$0A`: `PCLATH` (*PC* *lat*ched *h*igh)
- * `$10`~`$1F`: input pins
- * `$20`~`$7F`: RAM
+ * $00: indirect addressing
+ * $02: PCL (*PC* *l*ow)
+ * $03: STATUS
+ * $04: FSR
+ * $0A: PCLATH (*PC* *lat*ched *h*igh)
+ * $10~$1F: input pins
+ * $20~$7F: RAM
 
 ### Writting:
- * `$00`: indirect addressing
- * `$02`: `PCL`
- * `$03`: `STATUS`
- * `$04`: `FSR`
- * `$0A`: `PCLATH`
- * `$10`~`$1F`: output pins
- * `$20`~`$7F`: RAM
+ * $00: indirect addressing
+ * $02: PCL (*PC* *l*ow)
+ * $03: STATUS
+ * $04: FSR
+ * $0A: PCLATH (*PC* *lat*ched *h*igh)
+ * $10~$1F: output pins
+ * $20~$7F: RAM
 
-When reading or writting to the indirect addressing register, you will access the memory position written to `FSR`. This is useful for arrays.
+When reading or writting to the indirect addressing register, you will access the memory position written to FSR. This is useful for arrays.
 
-When writting to `PCL`, the `PC` low byte will be set to `PCL`, and the higher byte will be set to `PCLATH`. This is: `PC = PCLATH * 0x100 + PCL`. Reading `PCL` returns the current low byte of the `PC`, but reading `PCLATH` returns the last value written to it.
+When writting to PCL, the PC low byte will be set to PCL, and the higher byte will be set to PCLATH. This is: `PC = PCLATH * 0x100 + PCL`. Reading PCL returns the current low byte of the PC, but reading PCLATH returns the last value written to it.
 
-`STATUS` is composed of the following flags:
+STATUS is composed of the following flags:
 
 	MSB                        LSB
 	0 | 0 | 0 | 0 | 0 | Z | DC | C
 
-Being `Z` the zero flag (set to 1 when the result of an operation is zero), `DC` the Digit Carry (the carry from doing the operation only on the first 4-bits), and `C` being the Carry flag.
+Being Z the zero flag (set to 1 when the result of an operation is zero), DC the Digit Carry (the carry from doing the operation only on the first 4-bits), and C being the Carry flag.
 
 As RedstoneChips is not compatible with bidirectional I/O pins, it uses unidirectional general-purpose data pins, and as there is 16 bytes for it, there can be up to 128 input and 128 output pins.
 
@@ -102,7 +102,7 @@ Things to do
  * Add interrupts
  * Add a Watchdog Timer
  * Re-do part of the code so the processor does not loses its status (PC, files, RAM...) at server reset/shutdown
- * Check if it feasible to add an internal clock so it is not limited to RedstoneChips "`clock`" chip 10hz limit.
+ * Check if it feasible to add an internal clock so it is not limited to RedstoneChips `clock` chip 10hz limit.
  * Re-do part of the code to allow usage of internal 
 
 License
