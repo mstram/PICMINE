@@ -54,7 +54,7 @@ How can I build the chip?
 
 After having the chip installed, you need to build a chip with `mcu` on the sign, and with at least 15 inputs and 11 outputs. If you add more I/O pins, these will be used as GPIO pins (see memory map "input pins" and "output pins")
 
-The first input is used as the clock pin. On the rising edge (low-to-high transition) of the clock, the chip will output the PC on the first 12 output pins. On the falling edge (high-to-low transition), the chip will process the instruction given on input pins 2~15 (being the 2 the LSB, and 15 the MSB)
+The first input is used as the clock pin. On the rising edge (low-to-high transition) of the clock, the chip will output the PC on the first 11 output pins. On the falling edge (high-to-low transition), the chip will process the instruction given on input pins 2~15 (being the 2 the LSB, and 15 the MSB)
 
 How can I develop anything for it?
 ----------------------------------
