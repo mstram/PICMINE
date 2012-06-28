@@ -1,0 +1,4 @@
+name: PICMINE
+main: org.s4x8.picmine.chiplist
+version: 1.0
+depend: [RedstoneChips]
